@@ -120,6 +120,7 @@ public class SingletionDLC {
             Log.e(TAG, "method: " + method);
             Log.e(TAG, "data: " + data);
             Map<String, Object> eventParameters0 = new HashMap<String, Object>();
+            eventParameters0.put("data", data);
             switch (method) {
                 case "login":
                     AppsFlyerLib.getInstance().logEvent(mContext, "af_login", eventParameters0);
