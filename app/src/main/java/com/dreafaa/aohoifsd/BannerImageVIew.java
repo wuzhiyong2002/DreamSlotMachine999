@@ -48,12 +48,7 @@ public class BannerImageVIew extends LinearLayout {
         setGravity(0x11);
         setOrientation(HORIZONTAL);
         List<Integer> Imgs = new ArrayList<>();
-        Imgs.add(R.drawable.caonei);
-        Imgs.add(R.drawable.lanmei);
-        Imgs.add(R.drawable.huolongguo);
-        Imgs.add(R.drawable.mangguo);
-        Imgs.add(R.drawable.chengzi);
-        Imgs.add(R.drawable.huolongguo);
+        
         ViewGroup.LayoutParams leftParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 400, 1);
         initBanner(context, Imgs, leftParams, banner1);
         initBanner(context, Imgs, leftParams, banner2);
