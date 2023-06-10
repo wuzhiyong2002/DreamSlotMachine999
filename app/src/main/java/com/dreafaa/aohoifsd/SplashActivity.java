@@ -15,12 +15,28 @@ import retrofit2.Response;
 public class SplashActivity extends AppCompatActivity {
 
     private static final String TAG = "SplashActivity";
-
+private ImageView img;
+    private HorizontalProgressView progress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        initData();
+        initView();
+       new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                initData();
+                for (int i = 0; i < 100; i++) {
+                    progress.setProgress(i);
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+        }.start();
     }
 
     private void initData() {
@@ -70,5 +86,9 @@ public class SplashActivity extends AppCompatActivity {
     private void goMain() {
         startActivity(new Intent(SplashActivity.this, MainActivity.class));
         finish();
+    }
+     private void initView() {
+        img = (ImageView) findViewById(R.id.img);
+        progress = (HorizontalProgressView) findViewById(R.id.progress);
     }
 }
